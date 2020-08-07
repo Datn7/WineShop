@@ -4,32 +4,29 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto" >
       <li class="nav-item active">
         <a class="nav-link" href="#">მთავარი <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">მეორე ლინკი</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="logout()">სტატიკგასვლა</a>
-      </li>
     </ul>
 
-    <div *ngIf="loggedIn()" class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle"  href="#" >გამარჯობა {{_authService.decodedToken?.unique_name}}</a>
-      <div class="dropdown-menu" style="">
+    <div *ngIf="loggedIn()" class="nav-item dropdown mr-5" dropdown>
+      <a class="nav-link dropdown-toggle"  href="#" dropdownToggle >გამარჯობა {{_authService.decodedToken?.unique_name}}</a>
+      <div class="dropdown-menu mt-2" style="" *dropdownMenu>
         <a class="dropdown-item" href="#">პროფილის შეცვლა</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">გასვლა</a>
+        <a class="dropdown-item" (click)="logout()">გასვლა</a>
       </div>
     </div>
 
 
     <form *ngIf="!loggedIn()" class="form-inline my-2 my-lg-0" #loginForm="ngForm" (ngSubmit)="login()">
-      <input class="form-control mr-sm-2" type="search" placeholder="მომხმარებელი" [(ngModel)]="model.username" name="username" required >
-      <input class="form-control mr-sm-2" type="search" placeholder="პაროლი" [(ngModel)]="model.password" name="password" required>
+      <input class="form-control mr-sm-2" type="text" placeholder="მომხმარებელი" [(ngModel)]="model.username" name="username" required >
+      <input class="form-control mr-sm-2" type="password" placeholder="პაროლი" [(ngModel)]="model.password" name="password" required>
       <button [disabled]="!loginForm.valid" class="btn btn-outline-success my-2 my-sm-0" type="submit">შესვლა </button>
     </form>
   </div>

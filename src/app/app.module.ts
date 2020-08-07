@@ -20,8 +20,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home/home.component';
 import { RegisterComponent } from './register/register/register.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 @NgModule({
-	declarations: [ AppComponent, PostCreateComponent, HeaderComponent, PostListComponent, HomeComponent, RegisterComponent ],
+	declarations: [
+		AppComponent,
+		PostCreateComponent,
+		HeaderComponent,
+		PostListComponent,
+		HomeComponent,
+		RegisterComponent
+	],
 	imports: [
 		BrowserModule,
 		FormsModule,
@@ -33,7 +42,8 @@ import { RegisterComponent } from './register/register/register.component';
 		MatToolbarModule,
 		MatIconModule,
 		MatExpansionModule,
-		HttpClientModule
+		HttpClientModule,
+		BsDropdownModule.forRoot()
 	],
 	providers: [],
 	bootstrap: [ AppComponent ]
