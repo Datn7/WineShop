@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-register',
@@ -9,7 +10,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 })
 export class RegisterComponent implements OnInit {
 	model: any = {};
-	constructor(private _authService: AuthService, private _alertify: AlertifyService) {}
+	constructor(private _authService: AuthService, private _alertify: AlertifyService, private _router: Router) {}
 
 	ngOnInit(): void {}
 
@@ -20,11 +21,14 @@ export class RegisterComponent implements OnInit {
 			},
 			(error) => {
 				this._alertify.error(error);
+			},
+			() => {
+				this._router.navigate([ '/list' ]);
 			}
 		);
 	}
 
 	cancel() {
-		console.log('canceled');
+		this._router.navigate([ '/list' ]);
 	}
 }

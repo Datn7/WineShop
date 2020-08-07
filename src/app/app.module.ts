@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home/home.component';
 import { RegisterComponent } from './register/register/register.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { PersonListComponent } from './person-list/person-list/person-list.component';
 
 @NgModule({
 	declarations: [
@@ -29,7 +30,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 		HeaderComponent,
 		PostListComponent,
 		HomeComponent,
-		RegisterComponent
+		RegisterComponent,
+		PersonListComponent
 	],
 	imports: [
 		BrowserModule,

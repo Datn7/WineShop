@@ -1,23 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">ანგულარი</a>
+  <a class="navbar-brand" [routerLink]="['/']"   >ანგულარი</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-    <ul class="navbar-nav mr-auto" >
-      <li class="nav-item active">
-        <a class="nav-link" href="#">მთავარი <span class="sr-only">(current)</span></a>
+    <ul class="navbar-nav mr-auto"  >
+      <li class="nav-item active" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/']"  >მთავარი <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">მეორე ლინკი</a>
+      <li class="nav-item" routerLinkActive="active" >
+        <a class="nav-link" [routerLink]="['/list']"  >პერსონალი</a>
       </li>
     </ul>
 
     <div *ngIf="loggedIn()" class="nav-item dropdown mr-5" dropdown>
-      <a class="nav-link dropdown-toggle"  href="#" dropdownToggle >გამარჯობა {{_authService.decodedToken?.unique_name}}</a>
+      <a class="nav-link dropdown-toggle"   dropdownToggle >გამარჯობა {{_authService.decodedToken?.unique_name}}</a>
       <div class="dropdown-menu mt-2" style="" *dropdownMenu>
-        <a class="dropdown-item" href="#">პროფილის შეცვლა</a>
+        <a class="dropdown-item" >პროფილის შეცვლა</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="logout()">გასვლა</a>
       </div>
