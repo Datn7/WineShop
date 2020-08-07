@@ -18,7 +18,7 @@
     </ul>
 
     <div *ngIf="loggedIn()" class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle"  href="#" >გამარჯობა</a>
+      <a class="nav-link dropdown-toggle"  href="#" >გამარჯობა {{_authService.decodedToken?.unique_name}}</a>
       <div class="dropdown-menu" style="">
         <a class="dropdown-item" href="#">პროფილის შეცვლა</a>
         <div class="dropdown-divider"></div>

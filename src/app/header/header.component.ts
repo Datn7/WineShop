@@ -9,7 +9,7 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class HeaderComponent implements OnInit {
 	model: any = {};
-	constructor(private _authService: AuthService, private _alertify: AlertifyService) {}
+	constructor(public _authService: AuthService, private _alertify: AlertifyService) {}
 
 	ngOnInit(): void {}
 
@@ -25,8 +25,7 @@ export class HeaderComponent implements OnInit {
 	}
 
 	loggedIn() {
-		const token = localStorage.getItem('token');
-		return !!token;
+		return this._authService.loggedIn();
 	}
 
 	logout() {
