@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
+import { AlertifyService } from '../_services/alertify.service';
 
 @Component({
 	selector: 'app-header',
@@ -8,17 +9,17 @@ import { AuthService } from '../_services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 	model: any = {};
-	constructor(private _authService: AuthService) {}
+	constructor(private _authService: AuthService, private _alertify: AlertifyService) {}
 
 	ngOnInit(): void {}
 
 	login() {
 		this._authService.login(this.model).subscribe(
 			(next) => {
-				console.log('შეაჯვი როგორც იქნა');
+				this._alertify.success('შეაჯვი როგორც იქნა');
 			},
 			(error) => {
-				console.log('შემი ყლე ჭამე, ვერ შეხვედი');
+				this._alertify.error('შემი ყლე ჭამე, ვერ შეხვედი');
 			}
 		);
 	}
@@ -30,6 +31,6 @@ export class HeaderComponent implements OnInit {
 
 	logout() {
 		localStorage.removeItem('token');
-		console.log('გახვედი');
+		this._alertify.message('გახვედი');
 	}
 }
