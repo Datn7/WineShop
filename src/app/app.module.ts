@@ -22,6 +22,11 @@ import { RegisterComponent } from './register/register/register.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PersonListComponent } from './person-list/person-list/person-list.component';
+import { PersonDetailComponent } from './person-detail/person-detail/person-detail.component';
+
+export function tokenGetter() {
+	return localStorage.getItem('token');
+}
 
 @NgModule({
 	declarations: [
@@ -31,7 +36,8 @@ import { PersonListComponent } from './person-list/person-list/person-list.compo
 		PostListComponent,
 		HomeComponent,
 		RegisterComponent,
-		PersonListComponent
+		PersonListComponent,
+		PersonDetailComponent
 	],
 	imports: [
 		BrowserModule,

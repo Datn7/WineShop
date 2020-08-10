@@ -1,1 +1,29 @@
-<p>person-list works!</p>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-md-3 mt-3" *ngFor="let user of users">
+            <div class="card mb-3">
+                <h3 class="card-header" >{{user.knownAs}}</h3>
+                <div class="card-image-wrapper">
+                <img style="height: 200px; width: 100%; display: block;" src="{{user.photoURL}}" alt="{{user.knownAs}}">
+               
+                </div>
+                <div class="card-body">
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{user.age}}, | {{user.city}}</li>
+                </ul>
+               
+                <div class="card-footer text-muted">
+                  {{user.lastActive}}
+                </div>
+                <div class="list-inline">
+                    <button type="button" class="btn-sm btn-primary" [routerLink]="['/list/', user.id]" >პროფილი</button>
+                    <button type="button" class="btn-sm btn-success">მოწონება</button>
+                    <button type="button" class="btn-sm btn-warning">შეწუხება</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
